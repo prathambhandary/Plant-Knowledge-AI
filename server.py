@@ -59,7 +59,7 @@ def send_otp():
             session['email'] = email
             return render_template("otp.html", email=email)
         else:
-            'failed'
+            return render_template('email.html', err_msg="*No user is linked to that email.")            
     return render_template("email.html")
 
 @app.route("/verify-otp", methods=['POST', 'GET'])
@@ -77,7 +77,7 @@ def verify_otp():
                 add_user(name, email, password)
             return render_template("boom.html")
         else:
-            print("faileed")
+            return render_template('otp.html', email=email, err_msg="*Incorrect OTP")            
     return render_template("login.html")
 
 @app.route("/signup", methods=['POST', 'GET'])
@@ -98,7 +98,10 @@ def signup():
                 send_email(otp, email)
                 return render_template("otp.html", email=email)
             else:
-                'failed'
+                return render_template('signup.html', err_msg="*User with that email already exsist")            
+        else:
+            return render_template('signup.html', err_msg="*Passwords do not match")            
+    
     return render_template("signup.html") 
 
 @app.route("/resend-otp")
@@ -108,7 +111,7 @@ def resend_otp():
     print(otp)
     email = session.get('email')
     send_email(otp, email)
-    return render_template('otp.html', email=email)
+    return render_template('otp.html', email=email, err_msg="OTP resent")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
