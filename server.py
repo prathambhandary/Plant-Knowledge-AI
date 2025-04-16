@@ -39,7 +39,7 @@ def login():
         if verify_user(email, password):
             return render_template('boom.html')
         else:
-            'failed'
+            return render_template('login.html', err_msg="*Incorrect email or password")            
     return render_template('login.html')
 
 

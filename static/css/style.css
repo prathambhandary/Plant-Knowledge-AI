@@ -144,3 +144,9 @@ button, .submit, .submit-da, .text-button{
     text-decoration: underline;
     font-size: 25px;
 }
+
+.error {
+    padding-top: 20px;
+    font-size: 30px;
+    color: red;
+}

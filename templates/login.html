@@ -13,7 +13,7 @@
     <div class="login-box">
         <h1>Login</h1>
         <div class="hr"></div>
-        <p class="error">{{ err_msg }}</p>
+        <p class="error">{{ err_msg|safe }}</p>
         <form action="/login" method="post">
             <span class="div-login-email">
                 <input type="email" class="email-login" placeholder="Email" name="login-email"><br>
