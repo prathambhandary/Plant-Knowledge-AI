@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, request, session, redirect
 from chat import chat_with_bot
 from mail import gen_random_number, send_email
-from database import verify_user, add_user, email_exists
+from database import verify_user, add_user, email_exists, get_name_by_email
 from dotenv import load_dotenv
 import os
 
@@ -37,7 +37,8 @@ def login():
         email = request.form.get('login-email')
         password = request.form.get('login-password')
         if verify_user(email, password):
-            return render_template('boom.html')
+            name = get_name_by_email(email)
+            return render_template('welcome.html', name=name)
         else:
             return render_template('login.html', err_msg="*Incorrect email or password")            
     return render_template('login.html')
@@ -75,7 +76,7 @@ def verify_otp():
                 name = session.get('name')
                 password = session.get('password')
                 add_user(name, email, password)
-            return render_template("boom.html")
+            return render_template("welcome.html", name=name)
         else:
             return render_template('otp.html', email=email, err_msg="*Incorrect OTP")            
     return render_template("login.html")

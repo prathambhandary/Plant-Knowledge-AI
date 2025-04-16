@@ -52,3 +52,19 @@ def email_exists(email):
 
     conn.close()
     return exists
+
+import sqlite3
+
+def get_name_by_email(email):
+    conn = sqlite3.connect('users.db')
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT name FROM user_details WHERE email = ?", (email,))
+    result = cursor.fetchone()
+    
+    conn.close()
+
+    if result:
+        return result[0]  # returns the name
+    else:
+        return None  # no user found with that email
