@@ -67,8 +67,7 @@ def send_otp():
         session['email'] = email
         return render_template("otp.html", email=email)
     else:
-        return render_template('email.html', err_msg="*No user is linked to that email.")            
-    return render_template("email.html")
+        return render_template('email.html', err_msg="*No user is linked to that email.")
 
 @app.route("/verify-otp", methods=['POST', 'GET'])
 def verify_otp():

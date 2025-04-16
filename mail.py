@@ -41,7 +41,6 @@ def send_email(otp, TO_EMAIL):
     </body>
     </html>
     """
-
     msg = MIMEMultipart()
     msg['Subject'] = 'Your OTP for Plant Knowledge AI'
     msg['From'] = EMAIL_ADDRESS
