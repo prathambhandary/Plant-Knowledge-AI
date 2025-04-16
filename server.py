@@ -19,7 +19,7 @@ def boom():
     if request.method == 'POST':
         plant_name = request.form.get('plant-name')
         session['plant_name'] = plant_name
-        return render_template('chat.html', plant_name=plant_name, user_input='Hi', bot_output = chat_with_bot("Hi", plant_name))
+        return render_template('loading.html', load_msg="Loading Plant Knowledge AI.....")
     return render_template("boom.html")
 
 @app.route("/chat", methods=['GET', 'POST'])
@@ -48,19 +48,26 @@ def login():
 def email_for_otp():
     return render_template("email.html")
 
-@app.route("/send-otp", methods=['POST', 'GET'])
-def send_otp():
+@app.route("/load-otp", methods=['POST', 'GET'])
+def load_otp():
     if request.method == 'POST':
         email = request.form.get('otp-email')
-        if email_exists(email):
-            otp = gen_random_number()
-            print(otp)
-            send_email(otp, email)
-            session['otp'] = otp
-            session['email'] = email
-            return render_template("otp.html", email=email)
-        else:
-            return render_template('email.html', err_msg="*No user is linked to that email.")            
+        session['email'] = email
+        return render_template("loading-otp.html", load_msg=f"Sending OTP to {email}...")
+    return render_template("email.html")
+
+@app.route("/send-otp", methods=['POST', 'GET'])
+def send_otp():
+    email = session.get('email')
+    if email_exists(email):
+        otp = gen_random_number()
+        print(otp)
+        send_email(otp, email)
+        session['otp'] = otp
+        session['email'] = email
+        return render_template("otp.html", email=email)
+    else:
+        return render_template('email.html', err_msg="*No user is linked to that email.")            
     return render_template("email.html")
 
 @app.route("/verify-otp", methods=['POST', 'GET'])
@@ -76,10 +83,10 @@ def verify_otp():
                 name = session.get('name')
                 password = session.get('password')
                 add_user(name, email, password)
-            return render_template("welcome.html", name=name)
+            return render_template("welcome.html", name=get_name_by_email(email))
         else:
             return render_template('otp.html', email=email, err_msg="*Incorrect OTP")            
-    return render_template("login.html")
+    return render_template("otp.html", email=session.get('email'))
 
 @app.route("/signup", methods=['POST', 'GET'])
 def signup():
@@ -113,6 +120,10 @@ def resend_otp():
     email = session.get('email')
     send_email(otp, email)
     return render_template('otp.html', email=email, err_msg="OTP resent")
+
+@app.route("/loading-resend-otp")
+def loading_resend_otp():
+    return render_template("loading-resend-otp.html", load_msg=f"Resending OTP to {session.get('email')}...")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
