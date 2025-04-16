@@ -97,20 +97,25 @@ def signup():
         confirm_password = request.form.get('confirm-password')
         if password == confirm_password:
             if not(email_exists(email)):
-                otp = gen_random_number()
                 session['name'] = name
-                session['otp'] = otp
                 session['email'] = email
                 session['password'] = password
-                print(otp)
-                send_email(otp, email)
-                return render_template("otp.html", email=email)
+                return render_template("loading-signup-otp.html", load_msg=f"Sending OTP to {email}...")
             else:
                 return render_template('signup.html', err_msg="*User with that email already exsist")            
         else:
             return render_template('signup.html', err_msg="*Passwords do not match")            
     
     return render_template("signup.html") 
+
+@app.route("/loading-signup-otp")
+def loading_signup_otp():
+    otp = gen_random_number()
+    session['otp'] = otp
+    print(otp)
+    email = session.get("email")
+    send_email(otp, email)
+    return render_template("otp.html", email=email)
 
 @app.route("/resend-otp")
 def resend_otp():
