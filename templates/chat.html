@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PlantBot</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <h1>PLANT KNOWLEDGE AI <span class="plant"> Plant - {{ plant_name }}</span></h1><div class="hr"></div>
+        <div class="chat-box">
+            <div class="me" >
+                <div class="me-text">{{ user_input|safe }}</div>
+            </div>
+            <div class="you">
+                <div class="you-text">{{ bot_output|safe }}</div>
+            </div>
+        </div>
+        <div class="hr"></div>
+        <div class="chat-options">
+            <form method="post" action="/chat">
+                <input type="text" name="user-input" class="user" placeholder="Enter your prompt..." required>
+                <input type="submit" value="Send" class="submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

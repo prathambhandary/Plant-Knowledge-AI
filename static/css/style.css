@@ -1,0 +1,146 @@
+:root {
+    --bg-color: #3aafa9;
+    --text-color1: #feffff;
+    --text-color2: #17252a;
+    --fontname: 'Special Gothic Condensed One', sans-serif;
+}
+
+body{
+    background-color: var(--bg-color);
+    font-family: var(--fontname);
+    color: var(--text-color1);
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1, p{
+    margin: 0;
+    align-content: left;
+    /* border: 5px solid green; */
+}
+
+.ducing{
+    margin-top: -50px;
+}
+
+.plant-text, .knowledge{
+    margin-top: -50px;
+    color: var(--text-color2);
+}
+
+p{
+    margin-top: -20px;
+    font-size: 45px;
+}
+
+hr {
+    height: 3px; /* thickness */
+    background-color: #2b7a78; /* color */
+    border: none; /* remove default border */
+    width: 100%; /* optional: set width */
+    margin: 0px;
+    margin-bottom: 20px; /* optional: center it */
+}
+
+.illus {
+    height: 500px;
+    width:  500px;
+    background-image: url("/static/images/illus.avif");
+    background-size: cover;
+    border-radius: 30px;
+    margin-left: 35px;
+}
+
+button, .submit, .submit-da, .text-button{
+    font-family: var(--fontname);
+    background-color: var(--text-color2);
+    border: 0;
+    color: var(--text-color1);
+    font-size: 25px;
+    border-radius: 20px;
+    height: 40px;
+    width: 135px;
+}
+
+.talk{
+    font-size: 50px;
+    color: var(--text-color2);
+}
+
+.intro-boom {
+    display: flex;
+    flex-direction: column; /* stack the heading, input, and button */
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* adds spacing between items */
+    width: 100%;
+}
+.input-bar {
+    height: 35px;
+    width: 300px;
+    font-size: 25px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-family: var(--fontname);
+    color: var(--text-color2);
+    background-color: var(--text-color1);
+}
+.submit {
+    margin-top: 10px;
+}
+
+.hr{
+    background-color: var(--text-color1);
+    height: 2px;
+    border-radius: 0.5px;
+    margin-top: 7px;
+    margin-bottom: 10px;
+}
+
+.login-box, .signup-box {
+    background-color: var(--text-color2);
+    padding: 25px;
+    border-radius: 25px;
+    font-size: 50px;
+}
+
+.submit-da{
+    background-color: var(--text-color1);
+    color: var(--text-color2);
+}
+
+.submit-da:hover {
+    box-shadow: 0px 0px 2px 0 var(--text-color1)
+}
+
+.email-login, .password-login {
+    border: 0;
+    height: 50px;
+    width: 350px;
+    border-radius: 20px;
+    padding-left: 15px;
+    font-size: 25px;
+    font-family: var(--fontname);
+    color: var(--text-color2);
+}
+
+.password-login {
+    font-family: sans-serif;
+}
+
+.email-login::placeholder, .password-login::placeholder {
+    font-size: 25px;
+    font-family: var(--fontname);
+}
+
+.text-button {
+    width: auto;
+    text-decoration: underline;
+    font-size: 25px;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Knowledge</title>
+    <link rel="stylesheet" href="style.css">    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-box">
+        <h1>Login</h1>
+        <div class="hr"></div>
+        <form action="/login" method="post">
+            <span class="div-login-email">
+                <input type="email" class="email-login" placeholder="Email" name="login-email"><br>
+            </span>
+            <span class="div-login-password">
+                <input type="password" class="password-login" placeholder="Password" name="login-password"><br>
+            </span>
+            <input type="submit" value="Submit" class="submit-da">
+        </form>
+        <div style="display: flex;">
+            <form action="/email-for-otp" method="get">
+                <input type="submit" value="Forgot password? " class="text-button"></button>
+            </form>
+            <form action="/signup" method="get">
+                <input type="submit" value="Don't have an acc?" class="text-button"></button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

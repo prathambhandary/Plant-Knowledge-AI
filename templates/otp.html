@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Knowledge</title>
+    <link rel="stylesheet" href="style.css">    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="login-box">
+        <h1>Verify OTP</h1>
+        <div class="hr"></div>
+        <form action="/verify-otp" method="post">
+            <p style="font-size: 25px; margin-top: 10px;">OTP sent to "{{ email }}".</p>
+            <span class="div-login-email">
+                <input type="number" class="email-login" placeholder="1234" name="user-otp"><br>
+            </span>
+            <input type="submit" value="Submit" class="submit-da">
+        </form>
+        <form action="/resend-otp" method="get">
+            <input type="submit" class="text-button" value="Resend OTP">
+        </form>
+    </div>
+</body>
+</html>

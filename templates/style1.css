@@ -1,0 +1,119 @@
+:root {
+    --bg-color: #3aafa9;
+    --text-color1: #feffff;
+    --text-color2: #17252a;
+    --fontname: 'Special Gothic Condensed One', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    font-family: var(--fontname);
+    color: var(--text-color1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 12px;
+}
+
+h1 {
+    color: var(--text-color2);
+    margin: 0;
+}
+.plant {
+    font-size: 20px;
+    color: #2b7a78;
+}
+.hr{
+    background-color: var(--text-color2);
+    height: 2px;
+    border-radius: 0.5px;
+    margin-top: 7px;
+    margin-bottom: 10px;
+}
+
+.chat-box {
+    margin-top: 10px;
+    height: 35em;
+    width: 200vh;
+    overflow-y: auto; /* scrollable vertically */
+    padding: 10px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
+.chat-options{
+    /* background-color: white; */
+    height: 2em;
+    width: 200vh;
+    text-align: center;
+}
+
+.me-text, .you-text{
+    background-color: var(--text-color2);
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0;
+    max-width: 80%;
+    height: auto;
+    border-radius: 25px;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.me{
+    margin-bottom: 7px;
+    text-align: right;
+}
+
+.me-text {
+    padding: 5px 20px;
+}
+
+.user {
+    height: 44px;
+    width: 70%;
+    border-radius: 25px;
+    border: 0px solid var(--text-color2);
+    font-family: var(--fontname);
+    background-color: var(--text-color2);
+    color: var(--text-color1);
+    margin: 0;
+    padding-left: 20px;
+    font-size: 17.5px;
+
+}
+.user::placeholder{
+    color: var(--text-color1);
+    font-size: 17.5px;
+}
+.submit {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border: 0;
+    background-color: #17252a;
+    font-family: var(--fontname);
+    color: var(--text-color1);
+    font-size: 17.5px;
+}
+
+.chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+    background-color: #2b7a78;
+    border-radius: 10px;
+}
+
+.plant {
+    background-color: var(--text-color2);
+    color: var(--text-color1);
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: normal;
+    border-radius: 5px;
+}

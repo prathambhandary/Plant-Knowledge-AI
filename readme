@@ -1,0 +1,6 @@
+Things left to be:
+    1. Failed messages
+    2. Email OTP formatting
+    3. Retry Trefle API
+    4. Secure .env file
+    5. Make grow card with Cohere AI
