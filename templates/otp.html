@@ -13,6 +13,7 @@
     <div class="login-box">
         <h1>Verify OTP</h1>
         <div class="hr"></div>
+        <p class="error">{{ err_msg }}</p>
         <form action="/verify-otp" method="post">
             <p style="font-size: 25px; margin-top: 10px;">OTP sent to "{{ email }}".</p>
             <span class="div-login-email">
