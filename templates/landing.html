@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Knowledge AI - OTP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1 class="title">Welcome to Plant Knowledge AI</h1>
+            <p class="message">Your One-Time Password is:</p>
+            <div class="otp">{{ otp }}</div>
+            <p class="note">Use this OTP to verify your email. It will expire in a few minutes.</p>
+        </div>
+    </div>
+</body>
+</html>

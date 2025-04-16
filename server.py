@@ -130,5 +130,10 @@ def resend_otp():
 def loading_resend_otp():
     return render_template("loading-resend-otp.html", load_msg=f"Resending OTP to {session.get('email')}...")
 
+@app.route("/landing-otp")
+def landing_otp():
+    otp = session.get("otp")
+    return render_template("landing.html", otp=otp)
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
