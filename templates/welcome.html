@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="intro-boom">
+        <h1 class="talk">Welcome back, {{ name }}! 👋</h1>
+        <p class="talk" style="font-weight: bold;">Glad to have you here. Let's help your plants thrive!</p>
+        <form method="get" action="/prompting">
+            <input type="submit" value="Continue" class="submit">
+        </form>
+    </div>
+</body>
+</html>
